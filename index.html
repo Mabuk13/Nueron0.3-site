@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Nueron 0.3 — WhatsApp ModBot (Landing)</title>
+  <meta name="description" content="Nueron 0.3 — next generation WhatsApp moderation bot. Release planned in 2–4 years. Documentation and code placeholders included.">
+  <style>
+    /* Reset & base --------------------------------------------------- */
+    :root{
+      --bg:#000000;
+      --card:#000000;
+      --muted:#796060;
+      --accent:#650000;
+      --glass: rgba(67, 39, 39, 0.02);
+      --max-width:1100px;
+      --radius:14px;
+      --gap:18px;
+      --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;padding:24px;
+      font-family:var(--font-sans);background:linear-gradient(180deg,#071028 0%, #071433 60%);
+      color: #e6eef8; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      display:flex;justify-content:center;
+    }
+    .wrap{width:100%;max-width:var(--max-width)}
+
+    /* Header -------------------------------------------------------- */
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(180deg,rgba(255,59,59,0.12),rgba(0,0,0,0.15));display:grid;place-items:center;font-weight:700;border:1px solid rgba(255,59,59,0.08);}
+    .logo img{width:100%;height:100%;border-radius:8px;object-fit:cover;display:block;} 
+    .brand h1{font-size:1.15rem;margin:0}
+    .brand p{margin:0;font-size:0.82rem;color:var(--muted)}
+    nav{display:flex;gap:12px;align-items:center}
+    .btn{background:var(--accent);color:#022;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:600}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--muted);text-decoration:none}
+
+    /* Hero ---------------------------------------------------------- */
+    .hero{display:grid;gap:var(--gap);grid-template-columns:1fr;align-items:center;margin-bottom:20px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:var(--radius);box-shadow:0 6px 24px rgba(3,7,18,0.6);}
+    .hero .left h2{margin:0 0 6px 0;font-size:1.6rem}
+    .hero .left p{margin:0;color:var(--muted);line-height:1.45}
+    .kpis{display:flex;gap:12px;margin-top:14px}
+    .kpi{background:var(--glass);padding:8px 12px;border-radius:10px;font-weight:600}
+
+    /* Two-column features and image -------------------------------- */
+    .cols{display:grid;grid-template-columns:1fr;gap:18px;margin-top:16px}
+    .feature-list{display:grid;gap:12px}
+    .feature{display:flex;gap:12px;align-items:flex-start}
+    .feature .dot{width:12px;height:12px;border-radius:4px;background:var(--accent);margin-top:6px}
+
+    .placeholder-img{width:100%;height:220px;border-radius:12px;background:linear-gradient(90deg,#0b1630,#08233a);display:grid;place-items:center;color:var(--muted);font-size:0.95rem}
+
+    /* Docs & code areas -------------------------------------------- */
+    .docs{display:grid;gap:12px}
+    pre{margin:0;overflow:auto;background:rgba(0,0,0,0.35);padding:12px;border-radius:10px;color:#d7eef6}
+    code{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;font-size:0.86rem}
+
+    /* Roadmap timeline --------------------------------------------- */
+    .timeline{display:flex;gap:12px;flex-direction:column}
+    .step{display:flex;gap:12px;align-items:flex-start}
+    .step .num{min-width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,0.03);display:grid;place-items:center;font-weight:700}
+
+    /* Footer -------------------------------------------------------- */
+    footer{margin-top:22px;color:var(--muted);font-size:0.9rem}
+
+    /* Responsive desktop layout ------------------------------------ */
+    @media(min-width:900px){
+      .hero{grid-template-columns:1fr 420px}
+      .cols{grid-template-columns:1fr 420px}
+      .placeholder-img{height:380px}
+    }
+
+    /* Small mobile tweaks ------------------------------------------ */
+    @media(max-width:420px){
+      body{padding:16px}
+      .logo{width:48px;height:48px}
+      .hero .left h2{font-size:1.2rem}
+    }
+  
+
+    /* Image helper overrides */
+    .placeholder-img{width:100%;border-radius:12px;background:linear-gradient(180deg, rgba(20,6,6,0.12), rgba(0,0,0,0.35));display:grid;place-items:center;overflow:hidden;color:var(--muted);}    
+    .placeholder-img img{width:100%;height:100%;object-fit:contain;display:block;border-radius:12px}
+    .placeholder-img.small{height:120px}
+    @media(min-width:900px){.placeholder-img{aspect-ratio:16/9}.placeholder-img.small{height:120px;aspect-ratio:16/9}}
+
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">N3</div>
+        <div>
+          <h1>Nueron 0.3</h1>
+          <p>WhatsApp moderation bot — mod & automation service</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#features" class="ghost">Features</a>
+        <a href="#docs" class="ghost">Docs</a>
+        <a href="#roadmap" class="ghost">Roadmap</a>
+        <a class="btn" href="https://github.com/Mabuk13/Nueron-0.3-whatsapp-modbot" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero card" role="region" aria-labelledby="hero-title">
+      <div class="left">
+        <h2 id="hero-title">Nueron 0.3 — resilient WhatsApp moderation, built for speed</h2>
+        <p>Launching in <strong>2–4 years</strong>. Nueron 0.3 will be a highly configurable moderation bot for WhatsApp groups with advanced filters, multi‑group management, role management, and observability.We aim to give regular people an easy and cheap way to moderate their groups automatically.To use the bot you will have to add the Nueroon0.3 phone number to your group and pay 0.20 SGD every month by linking <br> your payment method to this website and you can cancle your subscription by clicking CANCLE SUB on the full website. We will send emails every month saying that the bot is active in case you forget about your subscription.</p>
+
+        <div class="kpis">
+          <div class="kpi">Target release: 2–4 years</div>
+          <div class="kpi">Platform: WhatsApp</div>
+          <div class="kpi">Payment: PayPal, Debit cards, Credit cards</div>
+        </div>
+
+        <div style="margin-top:16px;display:flex;gap:12px">
+          <a class="btn" href="#docs">Documentation</a>
+          <a class="ghost" href="#roadmap">See roadmap</a>
+        </div>
+      </div>
+
+      <aside>
+        <div class="placeholder-img card" aria-hidden="true">
+          <img src="Screenshot 2025-11-26 010323.png" alt="Hero screenshot" >
+        </div>
+      </aside>
+    </section>
+
+    <!-- FEATURES + ARCHITECTURE -->
+    <section id="features" class="cols" aria-labelledby="features-title">
+      <div class="card feature-list">
+        <h3 id="features-title">Key features</h3>
+
+        <div class="feature"><div class="dot"></div><div><strong>Moderation rules</strong><div style="color:var(--muted)">Custom banned words, regex support, per‑group thresholds, warning & auto‑ban flows.</div></div></div>
+
+        <div class="feature"><div class="dot"></div><div><strong>Admin controls</strong><div style="color:var(--muted)">Whitelist/allowed numbers, admin short commands, and audit logs for transparency.</div></div></div>
+
+        <div class="feature"><div class="dot"></div><div><strong>Storage & persistence</strong><div style="color:var(--muted)">Local file or cloud DB options with rotation: stores warnings, sessions, and configs.</div></div></div>
+
+        <div class="feature"><div class="dot"></div><div><strong>Deployment & resilience</strong><div style="color:var(--muted)">Designed for Railway, Render, Docker, and small VPS with session persistence and reconnect logic.</div></div></div>
+
+        <div class="feature"><div class="dot"></div><div><strong>Privacy & safety</strong><div style="color:var(--muted)">Minimal required permissions, configurable data retention, and export tools for compliance.</div></div></div>
+
+        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:12px 0">
+
+        <h4>Architecture diagrams</h4>
+        <div class="placeholder-img" aria-hidden="true">
+          <div class="placeholder-img" aria-hidden="true"><img src="Screenshot 2025-11-28 185150.png" alt="Architecture diagram" ></div>
+
+      </div>
+
+      <div class="card">
+        <h4>Quick start snippets (place your code here)</h4>
+
+        <!-- CODE PLACEHOLDER: paste your example snippets here -->
+        <div class="docs">
+          <div>
+            <label style="display:block;color:var(--muted);margin-bottom:6px">Index.js (example)</label>
+            <pre><code>const { Client, LocalAuth } = require("whatsapp-web.js");
+                const qrcode = require("qrcode-terminal");
+                const fs = require("fs");
+                const fsp = fs.promises;
+</code></pre>
+          </div>
+
+          <div>
+            <label style="display:block;color:var(--muted);margin-top:8px;margin-bottom:6px">Railway / Render env vars</label>
+            <pre><code># BANNED_WORDS=example1'example2
+# ALLOWED_NUMBERS=6580123456,6580765432
+# TARGET_GROUP_NAME="My Group"
+</code></pre>
+          </div>
+
+          <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:10px 0">
+
+          <div>
+            <label style="display:block;color:var(--muted);margin-bottom:6px">Files & documentation</label>
+            <pre><code>📁 /index.js
+📁 /wwebjsauth
+📁 /package.json
+</code></pre>
+          </div>
+        </div>
+
+        <div style="margin-top:14px">
+          <a class="btn" href="https://github.com/Mabuk13/Nueron-0.3-whatsapp-modbot" target="_blank" rel="noopener">GitHub</a>
+        </div>
+
+        <div style="margin-top:16px">
+          <h4 style="margin-bottom:8px">Screenshots</h4>
+          <div <div class="placeholder-img small"><img src="Screenshot 2025-11-26 010323.png" alt="Screenshot 1" ></div>
+          <div style="height:12px"></div>
+          <div <div class="placeholder-img small"><img src="Screenshot 2025-11-28 185150.png" alt="Screenshot 2" ></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOCUMENTATION / CODE EXAMPLES -->
+    <section id="docs" class="card" style="margin-top:18px">
+      <h3>Documentation</h3>
+      <p style="color:var(--muted)">APIs used, code, uses, struggles</p>
+
+      <!-- DOCUMENTATION IMAGE PLACEHOLDER -->
+      <div <div class="placeholder-img" style="margin-bottom:12px"><img src="k.jpg" alt="Docs banner" ></div>
+
+      <label style="display:block;color:var(--muted);margin-bottom:6px">Git upload method.</label>
+      <pre><code>install git lfs if needed
+        git remote add origin "REPO"
+</code></pre>
+<p style="color:var(--muted);margin-bottom:6px">This project was inspired by Discord modbots and since people were <br> swearing a lot in the class gc I took it into my hands to make a fast and responsive bot <br> to moderate the group and ensure no vulgarities were to be used for bullying.</p>
+<h2 style="margin-top:12px;margin-bottom:6px;color:#650000;">APIs and web hosting</h2>
+<p>We used whatsapp-web.js as the API so that we could do actions useing the bot such as banning and deleting messages.<br>I reccomend using railway as a web hosting service as its cheap and what were currently using for development testing.</p>
+
+
+      <details style="margin-top:12px;background:rgba(255,255,255,0.02);padding:10px;border-radius:8px">
+        <summary style="cursor:pointer">Advanced: Config template</summary>
+        <pre><code>{
+  "BANNED_WORDS": "foo,bar",
+  "ALLOWED_NUMBERS": "+6580123456",
+  "TARGET_GROUP_NAME": "My Group"
+}
+</code></pre>
+      </details>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap" class="card" style="margin-top:18px">
+      <h3>Roadmap</h3>
+      <p style="color:var(--muted)">Planned release window: <strong>2–4 years</strong>. High level milestones:</p>
+
+      <div class="timeline">
+        <div class="step"><div class="num">1</div><div><strong>R&D & architecture</strong><div style="color:var(--muted)">Prototype resilient session handling, storage options, and admin UX (months 0-1).</div></div></div>
+        <div class="step"><div class="num">2</div><div><strong>Alpha release</strong><div style="color:var(--muted)">Private alpha for invited groups, focus on reliability and security (in 2-3 months).</div></div></div>
+        <div class="step"><div class="num">3</div><div><strong>Beta & scale testing</strong><div style="color:var(--muted)">Wider testing with real traffic, integrations for deployment platforms (in 4-8 months).</div></div></div>
+        <div class="step"><div class="num">4</div><div><strong>Public release</strong><div style="color:var(--muted)">General availability and documentation, marketplace releases (in 2–4 years).</div></div></div>
+      </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    
+
+  </div>
+
+  <!-- Developer comments
+       - Replace /assets/* placeholders with your images.
+       - The <pre><code> blocks are intended as editable doc spaces.
+       - To embed real code examples, replace the inner text of the code blocks or swap with an iframe.
+       - For documentation hosting, consider using /docs/*.md and embed with a static site generator.
+  -->
+       <p>Nueron0.3 project startes 11-4-2025 by Cookie Developments</p>
+</body>
+</html>
